@@ -1,0 +1,23 @@
+<h2>Message room <app-footer></app-footer></h2>
+<div>
+  <form (ngSubmit)="send()">
+    <label for="exampleMessage">Message</label>
+    <textarea
+      class="textarea"
+      [(ngModel)]="text"
+      name="text"
+      class="u-full-width"
+      placeholder="Write a message"
+    ></textarea>
+    <input class="button-primary" type="submit" value="Submit" />
+  </form>
+</div>
+
+<div class="message-list" id="chat-message">
+  <ul *ngFor="let message of messages">
+    <li class="message-item">
+      <span class="message-author"> {{ message.from }}: </span>
+      {{ message.body }}
+    </li>
+  </ul>
+</div>

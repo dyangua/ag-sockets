@@ -1,0 +1,10 @@
+<div class="status-server">
+  <span *ngIf="wsService.socketStatus">
+    Online
+    <span class="figure online"></span>
+  </span>
+  <span *ngIf="!wsService.socketStatus">
+    Offline
+    <span class="figure offline"></span>
+  </span>
+</div>
