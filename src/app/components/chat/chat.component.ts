@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class ChatComponent implements OnInit, OnDestroy {
   text: string;
+  time: 50;
   element: HTMLElement;
   messages: any[] = [];
   messagesSuscripton: Subscription;
@@ -18,11 +19,10 @@ export class ChatComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.element = document.getElementById('chat-message');
     this.chatService.getMessages().subscribe(msg => {
-      console.log(msg);
       this.messages.push(msg);
       setTimeout(() => {
         this.element.scrollTop = this.element.scrollHeight;
-      }, 50);
+      }, this.time);
     });
   }
 

@@ -1,0 +1,24 @@
+<div class="login-container">
+  <h2>Login <app-footer></app-footer></h2>
+  <form (ngSubmit)="login()">
+    <div class="row">
+      <div class="twelve columns">
+        <label>Username</label>
+        <input
+          [(ngModel)]="userName"
+          class="u-full-width"
+          name="userName"
+          type="text"
+          placeholder="Username"
+        />
+      </div>
+    </div>
+    <button
+      [disabled]="userName.trim().length === 0"
+      class="button-primary"
+      type="submit"
+    >
+      Login
+    </button>
+  </form>
+</div>
