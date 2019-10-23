@@ -9,7 +9,7 @@ export class WebsocketService {
   public socketStatus = false;
   public user: User = null;
 
-  constructor(private socket: Socket) {
+  constructor(private socket: Socket, public wsService: WebsocketService) {
     this.loadStorage();
     this.checkStatus();
   }
@@ -50,7 +50,15 @@ export class WebsocketService {
   loadStorage() {
     if (localStorage.getItem('user')) {
       this.user = JSON.parse(localStorage.getItem('user'));
-    } else {
+      this.login(this.user.username); // login to the server
     }
+  }
+
+  getUsuario() {
+    return this.user;
+  }
+
+  getMessagesPrivate() {
+    return this.wsService.listen('message-private');
   }
 }
